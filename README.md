@@ -1,56 +1,118 @@
-# CodeIgniter 4 Framework
+# Venera CMS
 
-## What is CodeIgniter?
+Venera CMS is a multipurpose tool kit to support day top day work of managers. Currently this tool have financial transaction tracking feature.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+## Installation
 
-This repository holds the distributable version of the framework,
-including the user guide. It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+First setup XAMPP bundle on the server. 
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+[Cent OS Guide](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-centos-7)
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+[Ubuntu Guide](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04)
 
+[Windows Downloads](https://www.apachefriends.org/download.html)
 
-## Important Change with index.php
+Following guide to show linux based setup.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+[Deployment video guide](https://www.youtube.com/watch?v=1mtEwbO3r9A)
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+Download the latest [wordpess](https://wordpress.org/latest.zip).
 
-**Please** read the user guide for a better explanation of how CI4 works!
+```bash
+$ wget https://wordpress.org/latest.zip
+```
 
-## Repository Management
+unzip into apache web directory. Mostly it will be at "/var/www/html/"
 
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```bash
+$ unzip latest.zip
+```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+Setup word press based on their [Guide](https://wordpress.org/support/article/how-to-install-wordpress/)
+
+Then clone the Venera CMS source code inside wordpress root directory as "/var/www/html/cms/".
+
+Source code available at github [github](https://github.com/sugunan/venera.git).
+
+Venera CMS also need to be configured to use same wordpress DB. 
+
+Navigate to the CMS path. Mostly it will be "/var/www/html/cms/"
+
+```bash
+$ cd /var/www/html/cms/
+```
+
+Change the directory read write permission for all. This is temporary for setup only.
+
+```bash
+$ sudo chmod -R 777 /var/www/html/cms
+```
+
+Edit "public/index.php" file to point correct wordpress loader file. The line look as follows.
+
+```bash
+$wp_loader = '/var/www/html/wp-load.php';
+```
+
+Edit the codigniter base config "app/Config/App.php" file to setup the base url for CMS.
+
+```bash
+public $baseURL = 'https://www.yourdomain-or-ip.com/cms/public/';
+```
+
+Edit the codigniter database config "app/Config/Database.php" file to setup the wordpress DB details as "hostname, DB user, DB pass, DB name".
+
+```bash
+	public $default = [
+		'DSN'      => '',
+		'hostname' => 'localhost',
+		'username' => 'wp_user',
+		'password' => 'WpPass',
+		'database' => 'wp_db',
+		'DBDriver' => 'MySQLi',
+		'DBPrefix' => '',
+		'pConnect' => false,
+		'DBDebug'  => (ENVIRONMENT !== 'production'),
+		'charset'  => 'utf8',
+		'DBCollat' => 'utf8_general_ci',
+		'swapPre'  => '',
+		'encrypt'  => false,
+		'compress' => false,
+		'strictOn' => false,
+		'failover' => [],
+		'port'     => 3306,
+	];
+```
+
+Following command to be executed under CMS root directory to populate DB. Please consider this is not wordpress root, It is from CMS root.
+
+```bash
+php spark migrate
+php spark db:seed ConfigSeeder
+php spark db:seed AccountGroupSeeder
+php spark db:seed EntryTypeSeeder
+```
+
+Change the directory read write permission back to restricted "755".
+
+```bash
+$ sudo chmod -R 755 /var/www/html/cms
+```
+
+## Usage
+
+Project only accessible from public folder. So once setup over open the url as follows "cms/public/".
+
+http://baseurl-of-project/cms/public/
+
+It will redirect to wordpress login page. After properly login it will take back to CMS.
+
+[Usage guide](https://www.youtube.com/watch?v=1mtEwbO3r9A)
 
 ## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change [mail](mailto:zugunan@gmail.com).
 
-We welcome contributions from the community.
+Please make sure to update tests as appropriate.
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/contributing.md) section in the development repository.
-
-## Server Requirements
-
-PHP version 7.3 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
