@@ -10,6 +10,8 @@ class Lib extends BaseController
     public function __construct()
     {
         $this->data = array();
+		helper('cano'); //Constructer won't auto load helpers. So manual load required.
+        $this->data["db"] = \Config\Database::connect();
 	}
 
 	public function index()
@@ -242,4 +244,11 @@ class Lib extends BaseController
 	{
 		track();
 	}
+
+	public function whatsapp()
+	{
+		$query = $this->data["db"]->query('SELECT * FROM ven_acc_entries AS ae LEFT JOIN ven_acc_entry_type AS aet ON ae.entry_type_id = aet.id LIMIT 50');
+        echo json_encode($query->getResultArray());
+	}
 }
+

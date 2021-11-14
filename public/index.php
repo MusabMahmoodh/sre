@@ -6,8 +6,8 @@ ini_set('session.gc_maxlifetime', 604800);
 session_set_cookie_params(604800);
 session_start();
 date_default_timezone_set('Asia/Calcutta');
-define(ZONE_SECONDS,19800);
-define(ZONE_TIME,'+5:30');
+//define(ZONE_SECONDS,19800);
+//define(ZONE_TIME,'+5:30');
 
 if(!isset($_SESSION['lang']))
 {
