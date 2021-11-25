@@ -110,9 +110,27 @@ It will redirect to wordpress login page. After properly login it will take back
 [Usage guide](https://www.youtube.com/watch?v=1mtEwbO3r9A)
 
 ## Goals of the challenge
+
 * Establish adequate monitoring for the application to ascertain a correlation of events during standard use
 * Identify the failture points of the application through testing, monitoring or diagnostics
 * Identify root cause for these identified failtures and suggest prevention of reoccurrence
+* Permanantly fix or build temporary workarouns to alleviate the issues at hand
+
+## Details of challenge
+
+* Deploy the tool
+  * Deployment guide given above but few steps are missing on it
+  * Follow the error messages and try to fix those to complete installation
+* Establish adequate monitoring
+  * Choose suitable monitoring framework non other than pirated tools
+  * We should be able to monitor the infra health of OS, Apache, PHP, MySQL and Network traffic
+  * We should be able to find number of hits, status code as 200, 404, 5xx in reports
+* Identify the failture points of the application through testing, monitoring or diagnostics
+  * Test the application for any bugs and generate bug list [user guide](https://www.youtube.com/watch?v=Znt4QGNRXAo)
+  * If any standard issue as coding standards, vulnerbilities, data leakage and backdoors then list that also.
+* Identify root cause for these identified failtures and suggest prevention of reoccurrence
+  * Explain the steps on how those root cause identified
+  * Make sure all vulnerabilities are attended on this list
 * Permanantly fix or build temporary workarouns to alleviate the issues at hand
 
 ## License
