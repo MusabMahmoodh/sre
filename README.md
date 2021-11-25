@@ -109,10 +109,11 @@ It will redirect to wordpress login page. After properly login it will take back
 
 [Usage guide](https://www.youtube.com/watch?v=1mtEwbO3r9A)
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change [mail](mailto:zugunan@gmail.com).
-
-Please make sure to update tests as appropriate.
+## Goals of the challenge
+* Establish adequate monitoring for the application to ascertain a correlation of events during standard use
+* Identify the failture points of the application through testing, monitoring or diagnostics
+* Identify root cause for these identified failtures and suggest prevention of reoccurrence
+* Permanantly fix or build temporary workarouns to alleviate the issues at hand
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
