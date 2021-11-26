@@ -33,9 +33,9 @@ class Database extends Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
-		'username' => 'venera',
-		'password' => 'Era#Ven2021',
-		'database' => 'venera',
+		'username' => 'root',
+		'password' => '',
+		'database' => 'wordpress',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,

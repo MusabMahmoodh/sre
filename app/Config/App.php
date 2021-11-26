@@ -23,7 +23,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $baseURL = 'http://3.225.131.18/venera/cms/public/';
+	public $baseURL = 'http://localhost/wordpress/wordpress/var/www/html/cms/venera/public/';
 
 	/**
 	 * --------------------------------------------------------------------------

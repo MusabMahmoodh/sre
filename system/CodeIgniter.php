@@ -221,6 +221,7 @@ class CodeIgniter
 
 		if ($missingExtensions)
 		{
+			
 			throw FrameworkException::forMissingExtension(implode(', ', $missingExtensions));
 		}
 	}

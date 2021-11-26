@@ -21,7 +21,7 @@ if (version_compare(PHP_VERSION, $minPHPVersion, '<'))
 }
 unset($minPHPVersion);
 
-$wp_loader = '/var/www/html/venera/wp-load.php';
+$wp_loader = 'C:\xampp\htdocs\wordpress\wordpress\wp-load.php';
 if(is_file($wp_loader))
 {
 	require($wp_loader);
